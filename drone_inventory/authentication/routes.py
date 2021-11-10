@@ -25,7 +25,7 @@ def signup():
             db.session.commit()
             
             flash(f'You have successfuly created a user account {email}', 'User_created')
-            return redirect(url_for('site.home'))
+            return redirect(url_for('auth.signin'))
 
     except:
         raise Exception('Invalid Form Data: Please Check Your Form')
@@ -51,9 +51,9 @@ def signin():
 
             else:
                 flash('Your Email/Password is incorrect', 'auth-failed')
-                return redirect (url_for(auth.signin))
+                return redirect(url_for('auth.signin'))
             
-            return redirect(url_for('site.home'))
+            
 
     except:
         raise Exception('Invalid Form Data: Please Check Your Form')
